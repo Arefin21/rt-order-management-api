@@ -19,6 +19,7 @@ class OrderProduct extends Model
         'order_id',
         'product_id',
         'stock_id',
+        'quantity',
         'sale_price',
         'sub_total',
         'profit',
@@ -32,6 +33,7 @@ class OrderProduct extends Model
     protected function casts(): array
     {
         return [
+            'quantity' => 'integer',
             'sale_price' => 'decimal:2',
             'sub_total' => 'decimal:2',
             'profit' => 'decimal:2',
