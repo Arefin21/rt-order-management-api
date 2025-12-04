@@ -20,7 +20,7 @@ class OrderProductFactory extends Factory
     public function definition(): array
     {
         $stock = Stock::inRandomOrder()->first();
-        
+
         if (!$stock) {
             // If no stock exists, create a temporary one
             $product = Product::inRandomOrder()->first() ?? Product::factory()->create();
@@ -29,8 +29,8 @@ class OrderProductFactory extends Factory
 
         $salePrice = $stock->sale_price;
         $purchasePrice = $stock->purchase_price;
-        $profitPercentage = $purchasePrice > 0 
-            ? (($salePrice - $purchasePrice) / $purchasePrice) * 100 
+        $profitPercentage = $purchasePrice > 0
+            ? (($salePrice - $purchasePrice) / $purchasePrice) * 100
             : 0;
 
         return [

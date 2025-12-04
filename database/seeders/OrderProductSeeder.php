@@ -41,8 +41,8 @@ class OrderProductSeeder extends Seeder
             foreach ($selectedStocks as $stock) {
                 $salePrice = $stock->sale_price;
                 $purchasePrice = $stock->purchase_price;
-                $profitPercentage = $purchasePrice > 0 
-                    ? (($salePrice - $purchasePrice) / $purchasePrice) * 100 
+                $profitPercentage = $purchasePrice > 0
+                    ? (($salePrice - $purchasePrice) / $purchasePrice) * 100
                     : 0;
 
                 OrderProduct::create([
