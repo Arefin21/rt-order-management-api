@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\StockLogController;
 
 Route::post('auth/register', [AuthController::class, 'register']);
 Route::post('auth/login', [AuthController::class, 'login']);
@@ -26,6 +27,10 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('auth/orders/{id}', [OrderController::class, 'destroy']);
     Route::post('auth/orders/place', [OrderController::class, 'place']);
     Route::post('auth/orders/payment', [OrderController::class, 'fakePayment']);
+
+    // Stock Log routes
+    Route::get('auth/stock-logs', [StockLogController::class, 'index']);
+    Route::get('auth/stock-logs/{id}', [StockLogController::class, 'show']);
 });
 
 
