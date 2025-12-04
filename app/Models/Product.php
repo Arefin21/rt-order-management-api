@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -20,4 +21,12 @@ class Product extends Model
         'barcode',
         'slug',
     ];
+
+    /**
+     * Get the stocks for the product.
+     */
+    public function stocks(): HasMany
+    {
+        return $this->hasMany(Stock::class);
+    }
 }
